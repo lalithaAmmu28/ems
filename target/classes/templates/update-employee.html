@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+    <link rel="stylesheet" th:href="@{/css/update-employee.css}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Update Employee</h1>
+        <form th:action="@{/admin/employee/update/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+            <h2>Personal Details</h2>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" th:field="*{name}" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" th:field="*{dob}" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" th:field="*{age}" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" th:field="*{gender}" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="currentAddress">Current Address:</label>
+            <textarea id="currentAddress" th:field="*{currentAddress}" required></textarea>
+
+            <label for="permanentAddress">Permanent Address:</label>
+            <textarea id="permanentAddress" th:field="*{permanentAddress}" required></textarea>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+
+            <label for="emergencyContactName">Emergency Contact Name:</label>
+            <input type="text" id="emergencyContactName" th:field="*{emergencyContactName}" required>
+
+            <label for="emergencyContactNumber">Emergency Contact Number:</label>
+            <input type="tel" id="emergencyContactNumber" th:field="*{emergencyContactNumber}" required>
+
+            <h2>Professional Details</h2>
+            <label for="employmentCode">Employment Code:</label>
+            <input type="text" id="employmentCode" th:field="*{employmentCode}" required>
+
+            <label for="role">Role:</label>
+            <input type="text" id="role" th:field="*{role}" required>
+
+            <label for="username">Company Email:</label>
+            <input type="email" id="username" th:field="*{username}" required>
+
+            <label for="officePhone">Office Phone:</label>
+            <input type="text" id="officePhone" th:field="*{officePhone}" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" th:field="*{city}" required>
+
+            <label for="officeAddress">Office Address:</label>
+            <textarea id="officeAddress" th:field="*{officeAddress}" required></textarea>
+
+            <label for="reportingManagerMail">Reporting Manager Mail:</label>
+            <input type="email" id="reportingManagerMail" th:field="*{reportingManagerMail}" required>
+
+            <label for="hrName">HR Name:</label>
+            <input type="text" id="hrName" th:field="*{hrName}" required>
+
+            <label for="dateOfJoining">Date of Joining:</label>
+            <input type="date" id="dateOfJoining" th:field="*{dateOfJoining}" required>
+
+            <h2>Project Details</h2>
+            <label for="projectCode">Project Code:</label>
+            <input type="text" id="projectCode" th:field="*{projectCode}" required>
+
+            <label for="startDate">Project Start Date:</label>
+            <input type="date" id="startDate" th:field="*{projectStartDate}" required>
+
+            <label for="endDate">Project End Date:</label>
+            <input type="date" id="endDate" th:field="*{projectEndDate}" required>
+
+            <label for="projectName">Project Name:</label>
+            <input type="text" id="projectName" th:field="*{projectName}" required>
+
+            <div class="button-container">
+                <button type="submit">Update Employee</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

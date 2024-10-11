@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    <link rel="stylesheet" th:href="@{/css/create-employee.css}"> <!-- Thymeleaf link for CSS -->
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create Employee</h1>
+        <form id="employeeForm" th:action="@{/admin/employee/create}" th:object="${employee}" method="post"> <!-- Thymeleaf action -->
+            
+            <!-- Step 1: Personal Details -->
+            <div class="step" id="step1">
+                <h2>Personal Details</h2>
+                <label for="fullName">Employee Full Name:</label>
+                <input type="text" id="fullName" name="name" placeholder="Enter full name" required>
+                <span id="fullName-error" class="error-message"></span>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+                <span id="dob-error" class="error-message"></span>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" max="120" placeholder="Enter age" required>
+                <span id="age-error" class="error-message"></span>
+
+                <label for="currentAddress">Current Address:</label>
+                <textarea id="currentAddress" name="currentAddress" rows="4" placeholder="Enter your Current address here..." required></textarea>
+                <span id="currentAddress-error" class="error-message"></span>
+
+                <label for="permanentAddress">Permanent Address:</label>
+                <textarea id="permanentAddress" name="permanentAddress" rows="4" placeholder="Enter your Permanent address here..." required></textarea>
+                <span id="permanentAddress-error" class="error-message"></span>
+
+                <label for="mobile">Phone:</label>
+                <input type="tel" id="mobile" name="phoneNumber" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
+                <span id="mobile-error" class="error-message"></span>
+
+                <label for="email">Personal MailId:</label>
+                <input type="email" id="email" name="email" placeholder="Enter personal email id" required>
+                <span id="email-error" class="error-message"></span>
+
+                <label for="emergencyContactName">Emergency Contact Name:</label>
+                <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Enter Emergency Contact Name">
+                <span id="emergencyContactName-error" class="error-message"></span>
+
+                <label for="emergencyContactNumber">Emergency Contact Number:</label>
+                <input type="tel" id="emergencyContactNumber" name="emergencyContactNumber" pattern="[0-9]{10}" placeholder="Enter Emergency Contact Number">
+                <span id="emergencyContactNumber-error" class="error-message"></span>
+
+                <div class="button-container">
+                    <button type="button" class="next-btn" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Professional Details -->
+            <div class="step" id="step2" style="display:none;">
+                <h2>Professional Details</h2>
+                <label for="employmentCode">Employment Code (6 digits):</label>
+                <input type="text" id="employmentCode" name="employmentCode" pattern="\d{6}" placeholder="Enter employment code" required>
+                <span id="employmentCode-error" class="error-message"></span>
+
+                <label for="role">Role:</label>
+                <select id="role" name="role" required>
+                    <option value="ADMIN">Admin</option>
+                    <option value="EMPLOYEE">Employee</option>
+                </select>
+
+                <label for="companyMail">Company Mail:</label>
+                <input type="email" id="companyMail" name="username" placeholder="Enter company email" required>
+                <span id="companyMail-error" class="error-message"></span>
+
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="password" placeholder="Enter password" required>
+                <span id="pass-error" class="error-message"></span>
+
+                <label for="officePhone">Office Phone:</label>
+                <input type="tel" id="officePhone" name="officePhone" pattern="[0-9]{8,12}" placeholder="Enter office phone number" required>
+                <span id="officePhone-error" class="error-message"></span>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter City" required>
+                <span id="city-error" class="error-message"></span>
+
+                <label for="officeAddress">Office Address:</label>
+                <textarea id="officeAddress" name="officeAddress" rows="4" placeholder="Enter your full address here..." required></textarea>
+                <span id="officeAddress-error" class="error-message"></span>
+
+                <label for="R_ManagerMail">Reporting Manager Mail:</label>
+                <input type="email" id="R_ManagerMail" name="reportingManagerMail" placeholder="Enter Reporting Manager Mail" required>
+                <span id="R_ManagerMail-error" class="error-message"></span>
+
+                <label for="HrName">HR Name:</label>
+                <input type="text" id="HrName" name="hrName" placeholder="Enter HR Name" required>
+                <span id="HrName-error" class="error-message"></span>
+
+                <label for="dateOfJoining">Date of Joining:</label>
+                <input type="date" id="dateOfJoining" name="dateOfJoining" required>
+                <span id="dateOfJoining-error" class="error-message"></span>
+
+                <div class="button-container">
+                    <button type="button" class="prev-btn" onclick="prevStep()">Previous</button>
+                    <button type="button" class="next-btn" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Project Details -->
+            <div class="step" id="step3" style="display:none;">
+                <h2>Project Details</h2>
+                <label for="projectCode">Project Code:</label>
+                <input type="text" id="projectCode" name="projectCode" placeholder="Enter project code">
+                <span id="projectCode-error" class="error-message"></span>
+
+                <label for="startDate">Project Start Date:</label>
+                <input type="date" id="startDate" name="projectStartDate">
+                <span id="startDate-error" class="error-message"></span>
+
+                <label for="endDate">Project End Date:</label>
+                <input type="date" id="endDate" name="projectEndDate">
+                <span id="endDate-error" class="error-message"></span>
+
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" name="projectName" placeholder="Enter Project name">
+                <span id="projectName-error" class="error-message"></span>
+
+                <div class="button-container">
+                    <button type="button" class="prev-btn" onclick="prevStep()">Previous</button>
+                    <button type="button" class="next-btn" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Finance Details -->
+            <div class="step" id="step4" style="display:none;">
+                <h2>Finance Details</h2>
+                <label for="panCard">PAN Card:</label>
+                <input type="text" id="panCard" name="panCard" placeholder="Enter PAN card number" required>
+                <span id="panCard-error" class="error-message"></span>
+
+                <label for="aadharCard">Aadhar Card:</label>
+                <input type="text" id="aadharCard" name="aadharCard" placeholder="Enter Aadhar card number" required>
+                <span id="aadharCard-error" class="error-message"></span>
+
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" name="bankName" placeholder="Enter bank name" required>
+                <span id="bankName-error" class="error-message"></span>
+
+                <label for="bankAccNum">Bank Account Number:</label>
+                <input type="text" id="bankAccNum" name="bankAccountNumber" placeholder="Enter bank Account Number" required>
+                <span id="bankAccNum-error" class="error-message"></span>
+
+                <label for="branchName">Branch Name:</label>
+                <input type="text" id="branchName" name="branchName" placeholder="Enter Branch Name" required>
+                <span id="branchName-error" class="error-message"></span>
+
+                <label for="ifsc">IFSC Code:</label>
+                <input type="text" id="ifsc" name="ifsc" placeholder="Enter IFSC code" required>
+                <span id="ifsc-error" class="error-message"></span>
+
+                <label for="ctcBreakUp">CTC BreakUp:</label>
+                <input type="text" id="ctcBreakUp" name="ctcBreakUp" placeholder="Enter CTC BreakUp" required>
+                <span id="ctcBreakUp-error" class="error-message"></span>
+
+                <div class="button-container">
+                    <button type="button" class="prev-btn" onclick="prevStep()">Previous</button>
+                    <button type="submit" class="submit-btn">Create Employee</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script th:src="@{/js/form-validation.js}"></script>
+</body>
+</html>

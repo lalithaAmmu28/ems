@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="../images/employee-video.mp4" type="video/mp4"> <!-- Video file path -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <img th:src="@{/images/background.jpg}" class="sidebar-bg" alt="Sidebar Background">
+            <div class="profile">
+                <img th:src="@{/images/profile-avatar.png}" alt="Profile Picture" class="avatar">
+                <h2>Employee Dashboard</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a th:href="@{/employee/personal-details}">Personal Details</a></li>
+                <li><a th:href="@{/employee/professional-details}">Professional Details</a></li>
+                <li><a th:href="@{/employee/project-details}">Project Details</a></li>
+                <li><a th:href="@{/employee/finance-details}">Finance Details</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <header>
+                <div class="employee-info">
+                    <h3>Employee Name: <span th:text="${employee.name}"></span></h3>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </header>
+            <section>
+                <h2>Your Professional Details</h2>
+                <div class="content">
+                    <br><p><strong>Employment Code:</strong> <span th:text="${employee.employmentCode}"></span></p><br>
+                    <p><strong>Role:</strong> <span th:text="${employee.role}"></span></p><br>
+                    <p><strong>Company Mail:</strong> <span th:text="${employee.username}"></span></p><br>
+                    <p><strong>Office Phone:</strong> <span th:text="${employee.officePhone}"></span></p><br>
+                    <p><strong>City:</strong> <span th:text="${employee.city}"></span></p><br>
+                    <p><strong>Office Address:</strong> <span th:text="${employee.officeAddress}"></span></p><br>
+                    <p><strong>Reporting Manager Mail:</strong> <span th:text="${employee.reportingManagerMail}"></span></p><br>
+                    <p><strong>HR Name:</strong> <span th:text="${employee.hrName}"></span></p><br>
+                    <p><strong>Date of Joining:</strong> <span th:text="${employee.dateOfJoining}"></span></p><br>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = '/logout';
+        }
+    </script>
+</body>
+</html>

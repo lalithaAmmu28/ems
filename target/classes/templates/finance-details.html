@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="../images/employee-video.mp4" type="video/mp4"> <!-- Video file path -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <img th:src="@{/images/background.jpg}" class="sidebar-bg" alt="Sidebar Background">
+            <div class="profile">
+                <img th:src="@{/images/profile-avatar.png}" alt="Profile Picture" class="avatar">
+                <h2>Employee Dashboard</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a th:href="@{/employee/personal-details}">Personal Details</a></li>
+                <li><a th:href="@{/employee/professional-details}">Professional Details</a></li>
+                <li><a th:href="@{/employee/project-details}">Project Details</a></li>
+                <li><a th:href="@{/employee/finance-details}">Finance Details</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <header>
+                <div class="employee-info">
+                    <h3>Employee Name: <span th:text="${employee.name}"></span></h3>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </header>
+            <section>
+                <h2>Your Finance Details</h2>
+                <div class="content">
+                    <br><p><strong>PAN Card:</strong> <span th:text="${employee.panCard}"></span></p><br>
+                    <p><strong>Aadhar Card:</strong> <span th:text="${employee.aadharCard}"></span></p><br>
+                    <p><strong>Bank Name:</strong> <span th:text="${employee.bankName}"></span></p><br>
+                    <p><strong>Bank Account Number:</strong> <span th:text="${employee.bankAccountNumber}"></span></p><br>
+                    <p><strong>Branch Name:</strong> <span th:text="${employee.branchName}"></span></p><br>
+                    <p><strong>IFSC Code:</strong> <span th:text="${employee.ifsc}"></span></p><br>
+                    <p><strong>CTC BreakUp:</strong> <span th:text="${employee.ctcBreakUp}"></span></p><br>
+                </div>
+            </section>
+            <section>
+                <div class="payslip-download">
+                    <a href="/employee/download-payslip" class="download-btn">Download Payslip</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = '/logout';
+        }
+    </script>
+</body>
+</html>

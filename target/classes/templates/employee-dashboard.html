@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="../images/employee-video.mp4" type="video/mp4"> <!-- Video file path -->
+        Your browser does not support the video tag.
+    </video>
+    <!-- Flash message at the top of the page -->
+    <div th:if="${successMessage}" class="flash-message" id="flashMessage">
+        <p th:text="${successMessage}"></p>
+    </div>
+
+    <!-- Sidebar and Main Content -->
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <img th:src="@{/images/background.jpg}" class="sidebar-bg" alt="Sidebar Background">
+            <div class="profile">
+                <img th:src="@{/images/profile-avatar.png}" alt="Profile Picture" class="avatar">
+                <h2>Employee Dashboard</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a th:href="@{/employee/personal-details}">Personal Details</a></li>
+                <li><a th:href="@{/employee/professional-details}">Professional Details</a></li>
+                <li><a th:href="@{/employee/project-details}">Project Details</a></li>
+                <li><a th:href="@{/employee/finance-details}">Finance Details</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <header>
+                <div class="employee-info">
+                    <h3 th:text="'Hey!! ' + ${employee.name}">Hey!! John Doe</h3>
+                </div>
+                <button class="logout-btn" th:onclick="|window.location.href='@{/logout}'|">Logout</button>
+            </header>
+            <section>
+                <h2>Welcome to your dashboard!</h2>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Hide the flash message after 5 seconds
+        setTimeout(function() {
+            const flashMessage = document.getElementById('flashMessage');
+            if (flashMessage) {
+                flashMessage.style.opacity = '0'; // Fade out
+                setTimeout(() => flashMessage.style.display = 'none', 500); // Hide after fade-out
+            }
+        }, 5000); // 5 seconds
+    </script>
+</body>
+</html>
