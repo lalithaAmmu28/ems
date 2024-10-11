@@ -2,6 +2,7 @@ package com.example.ems.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
@@ -288,6 +289,7 @@ public class Employee implements Serializable {
     @Column(name = "FullName")
     private String name;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "Date_of_Birth")
     private LocalDate dob;
 
@@ -361,6 +363,7 @@ public class Employee implements Serializable {
     @Column(name = "HR_Name")
     private String hrName;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "Date_of_Joining")
     private LocalDate dateOfJoining;
 
@@ -369,8 +372,10 @@ public class Employee implements Serializable {
     private String projectCode;
 
     @Column(name = "Project_Start_Date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate projectStartDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "Project_End_Date")
     private LocalDate projectEndDate;
 
