@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/allr.jpeg'); /* Gradient background */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Form Container */
+.form-container {
+    background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blurred backdrop for glass effect */
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Glowing shadow */
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Keyframe for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Glowing text */
+}
+
+h2 {
+    color: #4a90e2;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+/* Label Styling */
+label {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for labels */
+}
+
+/* Input and Textarea Styling */
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.85); /* Light transparent input fields */
+    color: #333;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    background-color: rgba(255, 255, 255, 1); /* Full white on focus */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3); /* Glowing effect on focus */
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ab8;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); /* Glowing effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}

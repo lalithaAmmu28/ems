@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Employee Details</title>
+    <link rel="stylesheet" th:href="@{/css/view-employee.css}">
+</head>
+<body>
+    <div class="content">
+        <h1>Employee Details</h1>
+        
+        <!-- Personal Details Section -->
+        <div class="employee-section">
+            <h2>Personal Details</h2>
+            <p><strong>Employment Code:</strong> <span th:text="${employee.employmentCode}"></span></p>
+            <p><strong>Employee Name:</strong> <span th:text="${employee.name}"></span></p>
+            <p><strong>Date of Birth:</strong> <span th:text="${employee.dob}"></span></p>
+            <p><strong>Gender:</strong> <span th:text="${employee.gender}"></span></p>
+            <p><strong>Age:</strong> <span th:text="${employee.age}"></span></p>
+            <p><strong>Current Address:</strong> <span th:text="${employee.currentAddress}"></span></p>
+            <p><strong>Permanent Address:</strong> <span th:text="${employee.permanentAddress}"></span></p>
+            <p><strong>Phone Number:</strong> <span th:text="${employee.phoneNumber}"></span></p>
+            <p><strong>Personal Mail ID:</strong> <span th:text="${employee.email}"></span></p>
+            <p><strong>Emergency Contact Name:</strong> <span th:text="${employee.emergencyContactName}"></span></p>
+            <p><strong>Emergency Contact Number:</strong> <span th:text="${employee.emergencyContactNumber}"></span></p>
+        </div>
+
+        <!-- Professional Details Section -->
+        <div class="employee-section">
+            <h2>Professional Details</h2>
+            <p><strong>Role:</strong> <span th:text="${employee.role}"></span></p>
+            <p><strong>Company Mail:</strong> <span th:text="${employee.username}"></span></p>
+            <p><strong>Office Phone:</strong> <span th:text="${employee.officePhone}"></span></p>
+            <p><strong>City:</strong> <span th:text="${employee.city}"></span></p>
+            <p><strong>Office Address:</strong> <span th:text="${employee.officeAddress}"></span></p>
+            <p><strong>Reporting Manager Mail:</strong> <span th:text="${employee.reportingManagerMail}"></span></p>
+            <p><strong>HR Name:</strong> <span th:text="${employee.hrName}"></span></p>
+            <p><strong>Date of Joining:</strong> <span th:text="${employee.dateOfJoining}"></span></p>
+        </div>
+
+        <!-- Project Details Section -->
+        <div class="employee-section">
+            <h2>Project Details</h2>
+            <p><strong>Project Code:</strong> <span th:text="${employee.projectCode}"></span></p>
+            <p><strong>Project Name:</strong> <span th:text="${employee.projectName}"></span></p>
+            <p><strong>Project Start Date:</strong> <span th:text="${employee.projectStartDate}"></span></p>
+            <p><strong>Project End Date:</strong> <span th:text="${employee.projectEndDate}"></span></p>
+        </div>
+
+        <!-- Finance Details Section -->
+        <div class="employee-section">
+            <h2>Finance Details</h2>
+            <p><strong>PAN Card:</strong> <span th:text="${employee.panCard}"></span></p>
+            <p><strong>Aadhar Card:</strong> <span th:text="${employee.aadharCard}"></span></p>
+            <p><strong>Bank Name:</strong> <span th:text="${employee.bankName}"></span></p>
+            <p><strong>Bank Account Number:</strong> <span th:text="${employee.bankAccountNumber}"></span></p>
+            <p><strong>Branch Name:</strong> <span th:text="${employee.branchName}"></span></p>
+            <p><strong>IFSC Code:</strong> <span th:text="${employee.ifsc}"></span></p>
+            <p><strong>CTC Breakup:</strong> <span th:text="${employee.ctcBreakUp}"></span></p>
+        </div>
+
+        <!-- Back Button -->
+        <button th:onclick="|javascript:window.history.back();|" class="back-btn">Back</button>
+    </div>
+</body>
+</html>

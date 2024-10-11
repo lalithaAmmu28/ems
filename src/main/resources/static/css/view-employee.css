@@ -1,0 +1,120 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/allr.jpeg'); /* Use custom background */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Content Styling */
+.content {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); /* Blur effect */
+    padding: 40px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Glowing text */
+}
+
+h2 {
+    color: #4a90e2;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+/* Paragraph Styling */
+p {
+    margin: 10px 0;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+strong {
+    font-weight: bold;
+    color: #fff;
+}
+
+.employee-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-left: 4px solid #4a90e2;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Glowing shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-section:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.2); /* Enhanced glow on hover */
+}
+
+/* Back Button Styling */
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #357ab8;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); /* Glowing effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
